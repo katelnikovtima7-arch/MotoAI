@@ -64,52 +64,6 @@ const hints = [
 
 ];
 
-function aiAnswer(question) {
-
-    const q = question.toLowerCase();
-
-    const motoWords = [
-
-        "мото",
-        "скут",
-        "пит",
-        "альфа",
-        "карб",
-        "двиг",
-        "цеп",
-        "масл",
-        "ремонт",
-        "свеч",
-        "вариатор",
-        "колес",
-        "мопед",
-        "техник"
-
-    ];
-
-    let isMoto = false;
-
-    motoWords.forEach(word => {
-
-        if (q.includes(word)) {
-
-            isMoto = true;
-
-        }
-
-    });
-
-    if (isMoto) {
-
-        return "Пока MotoAI работает в демонстрационном режиме. После подключения Groq я смогу полноценно отвечать на вопросы о мототехнике.";
-
-    }
-
-    const random = hints[Math.floor(Math.random() * hints.length)];
-
-    return "Конечно! После подключения настоящего ИИ я смогу отвечать практически на любые вопросы.\n\n" + random;
-
-}
 
 function sendMessage() {
 
