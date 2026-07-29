@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotoAI</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>MotoAI</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -19,71 +23,54 @@
 
 <div class="container">
 
-    <!-- Верхние кнопки -->
-
     <div class="topBar">
 
         <button id="shareButton" class="topButton" title="Поделиться">
-
             🔗
-
         </button>
 
-        <a href="https://t.me/ТВОЙ_КАНАЛ"
-           target="_blank"
-           class="topButton"
-           title="Telegram">
+        <a
+        href="https://t.me/xleebuusheek"
+        target="_blank"
+        class="topButton"
+        title="Telegram">
 
-            ✈️
+            ✈
 
         </a>
 
     </div>
-
-    <!-- Главный экран -->
 
     <header class="hero">
 
         <h1>MotoAI</h1>
 
         <p class="subtitle">
-
             ИИ-помощник по мототехнике
-
         </p>
 
         <p class="description">
-
             Поможет с ремонтом, диагностикой,
-            обслуживанием, выбором мотоцикла,
-            подбором запчастей и ответит практически
-            на любой вопрос.
-
+            обслуживанием, подбором запчастей,
+            выбором мотоцикла и ответит
+            практически на любой вопрос.
         </p>
 
     </header>
 
-    <!-- Чат -->
+    <main id="chat" class="chat">
 
-    <main id="chat" class="chat"></main>
-
-    <!-- Поле ввода -->
+    </main>
 
     <footer class="chatBox">
 
         <div class="inputBox">
 
             <textarea
-
                 id="messageInput"
-
                 rows="1"
-
                 placeholder="Чем я могу помочь?"
-
-                autocomplete="off"
-
-            ></textarea>
+                autocomplete="off"></textarea>
 
             <div class="buttons">
 
@@ -122,4 +109,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
