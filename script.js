@@ -7,38 +7,38 @@ const placeholders = [
     "Чем я могу помочь?",
     "Спросите MotoAI...",
     "Как выбрать мотоцикл?",
+    "Какое масло лучше?",
     "Какие запчасти подойдут?",
-    "Опишите проблему...",
-    "Задайте любой вопрос...",
+    "Опишите, что вас интересует...",
     "О чём вы хотите узнать?",
-    "Чем помочь с вашей техникой?"
+    "Чем помочь с вашей мототехникой?"
 ];
 
-let currentPlaceholder = 0;
+let placeholderIndex = 0;
 
-function changePlaceholder(){
+function changePlaceholder() {
 
     input.style.opacity = "0";
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        currentPlaceholder++;
+        placeholderIndex++;
 
-        if(currentPlaceholder >= placeholders.length){
-            currentPlaceholder = 0;
+        if (placeholderIndex >= placeholders.length) {
+            placeholderIndex = 0;
         }
 
-        input.placeholder = placeholders[currentPlaceholder];
+        input.placeholder = placeholders[placeholderIndex];
 
         input.style.opacity = "1";
 
-    },400);
+    }, 350);
 
 }
 
-setInterval(changePlaceholder,12000);
+setInterval(changePlaceholder, 12000);
 
-function createMessage(text,type){
+function createMessage(text, type) {
 
     const div = document.createElement("div");
 
@@ -52,81 +52,90 @@ function createMessage(text,type){
 
 }
 
-const endings=[
+const hints = [
 
-"Кстати, моя основная специализация — мототехника.",
-"Лучше всего я разбираюсь в мотоциклах, скутерах и питбайках.",
-"Если захотите, можем поговорить о двухколёсной технике.",
-"Также могу помочь с ремонтом и диагностикой."
+"Если захотите, можем поговорить о мотоциклах и ремонте.",
+
+"Я лучше всего разбираюсь в мототехнике.",
+
+"Моя основная специализация — двухколёсная техника.",
+
+"Также могу помочь с диагностикой и обслуживанием."
 
 ];
 
-function aiAnswer(question){
+function aiAnswer(question) {
 
-    const q=question.toLowerCase();
+    const q = question.toLowerCase();
 
-    const motoWords=[
+    const motoWords = [
+
         "мото",
         "скут",
         "пит",
         "альфа",
-        "двиг",
         "карб",
-        "масл",
+        "двиг",
         "цеп",
-        "свеч",
+        "масл",
         "ремонт",
+        "свеч",
         "вариатор",
         "колес",
+        "мопед",
         "техник"
+
     ];
 
-    let moto=false;
+    let isMoto = false;
 
-    motoWords.forEach(word=>{
+    motoWords.forEach(word => {
 
-        if(q.includes(word)){
-            moto=true;
+        if (q.includes(word)) {
+
+            isMoto = true;
+
         }
 
     });
 
-    if(moto){
+    if (isMoto) {
 
-        return "Пока что MotoAI работает в демонстрационном режиме. Совсем скоро здесь будет подключён настоящий искусственный интеллект, который сможет подробно отвечать на любые вопросы по мототехнике.";
+        return "Пока MotoAI работает в демонстрационном режиме. После подключения Groq я смогу полноценно отвечать на вопросы о мототехнике.";
 
     }
 
-    const random=endings[Math.floor(Math.random()*endings.length)];
+    const random = hints[Math.floor(Math.random() * hints.length)];
 
-    return "Конечно, я могу отвечать и на обычные вопросы. Но всё же я создан прежде всего для помощи с мототехникой.\n\n"+random;
-
-}
-
-function sendMessage(){
-
-    const text=input.value.trim();
-
-    if(text==="") return;
-
-    createMessage(text,"user");
-
-    input.value="";
-    input.style.height="26px";
-
-    setTimeout(()=>{
-
-        createMessage(aiAnswer(text),"ai");
-
-    },600);
+    return "Конечно! После подключения настоящего ИИ я смогу отвечать практически на любые вопросы.\n\n" + random;
 
 }
 
-sendButton.onclick=sendMessage;
+function sendMessage() {
 
-input.addEventListener("keydown",e=>{
+    const text = input.value.trim();
 
-    if(e.key==="Enter" && !e.shiftKey){
+    if (text === "") return;
+
+    createMessage(text, "user");
+
+    input.value = "";
+
+    input.style.height = "28px";
+
+    setTimeout(() => {
+
+        createMessage(aiAnswer(text), "ai");
+
+    }, 700);
+
+}
+
+sendButton.onclick = sendMessage;
+
+input.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter" && !e.shiftKey){
 
         e.preventDefault();
 
@@ -136,15 +145,15 @@ input.addEventListener("keydown",e=>{
 
 });
 
-input.addEventListener("input",()=>{
+input.addEventListener("input", function(){
 
-    input.style.height="26px";
+    input.style.height = "28px";
 
-    input.style.height=input.scrollHeight+"px";
+    input.style.height = input.scrollHeight + "px";
 
 });
 
-shareButton.onclick=async()=>{
+shareButton.onclick = async function(){
 
     if(navigator.share){
 
@@ -160,7 +169,7 @@ shareButton.onclick=async()=>{
 
     }else{
 
-        await navigator.clipboard.writeText(window.location.href);
+        navigator.clipboard.writeText(window.location.href);
 
         alert("Ссылка скопирована!");
 
