@@ -125,11 +125,13 @@ function sendMessage() {
 
     input.style.height = "28px";
 
-    setTimeout(() => {
+    setTimeout(async () => {
 
-        createMessage(aiAnswer(text), "ai");
+    const answer = await aiAnswer(text);
 
-    }, 700);
+    createMessage(answer, "ai");
+
+}, 700);
 
 }
 
