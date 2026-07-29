@@ -1,31 +1,30 @@
 const input = document.getElementById("messageInput");
 const sendButton = document.getElementById("sendButton");
+const shareButton = document.getElementById("shareButton");
 const chat = document.getElementById("chat");
 
 const placeholders = [
     "Чем я могу помочь?",
     "Спросите MotoAI...",
-    "Какое масло выбрать?",
-    "Какой мотоцикл купить?",
+    "Как выбрать мотоцикл?",
+    "Какие запчасти подойдут?",
     "Опишите проблему...",
     "Задайте любой вопрос...",
     "О чём вы хотите узнать?",
-    "Нужна помощь с ремонтом?",
-    "Хотите подобрать запчасти?",
-    "Чем помочь сегодня?"
+    "Чем помочь с вашей техникой?"
 ];
 
 let currentPlaceholder = 0;
 
-function changePlaceholder() {
+function changePlaceholder(){
 
     input.style.opacity = "0";
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         currentPlaceholder++;
 
-        if (currentPlaceholder >= placeholders.length) {
+        if(currentPlaceholder >= placeholders.length){
             currentPlaceholder = 0;
         }
 
@@ -33,96 +32,97 @@ function changePlaceholder() {
 
         input.style.opacity = "1";
 
-    }, 250);
+    },400);
 
 }
 
-setInterval(changePlaceholder, 3500);
+setInterval(changePlaceholder,12000);
 
-function createMessage(text, type) {
+function createMessage(text,type){
 
-    const message = document.createElement("div");
+    const div = document.createElement("div");
 
-    message.className = "message " + type;
+    div.className = "message " + type;
 
-    message.textContent = text;
+    div.textContent = text;
 
-    chat.appendChild(message);
+    chat.appendChild(div);
 
     chat.scrollTop = chat.scrollHeight;
 
 }
 
-const endings = [
+const endings=[
 
-"Кстати, я лучше всего разбираюсь в мотоциклах, скутерах, питбайках и другой мототехнике.",
-"Если захотите, можем перейти к вопросам о мототехнике.",
-"Также могу помочь с ремонтом, диагностикой или выбором техники.",
-"Но моя основная специализация — мототехника.",
-"Лучше всего я разбираюсь именно в двухколёсной технике."
+"Кстати, моя основная специализация — мототехника.",
+"Лучше всего я разбираюсь в мотоциклах, скутерах и питбайках.",
+"Если захотите, можем поговорить о двухколёсной технике.",
+"Также могу помочь с ремонтом и диагностикой."
 
 ];
 
 function aiAnswer(question){
 
-    const q = question.toLowerCase();
+    const q=question.toLowerCase();
 
-    const motoWords = [
-
-    "мото",
-    "скут",
-    "альфа",
-    "пит",
-    "двиг",
-    "карб",
-    "цеп",
-    "масл",
-    "свеч",
-    "ремонт",
-    "колес",
-    "техник"
-
+    const motoWords=[
+        "мото",
+        "скут",
+        "пит",
+        "альфа",
+        "двиг",
+        "карб",
+        "масл",
+        "цеп",
+        "свеч",
+        "ремонт",
+        "вариатор",
+        "колес",
+        "техник"
     ];
 
-    let moto = false;
+    let moto=false;
 
     motoWords.forEach(word=>{
 
-        if(q.includes(word)) moto = true;
+        if(q.includes(word)){
+            moto=true;
+        }
 
     });
 
     if(moto){
 
-        return "Спасибо за вопрос! Совсем скоро здесь будет настоящий MotoAI с искусственным интеллектом Groq, который сможет подробно отвечать на вопросы о мототехнике.";
+        return "Пока что MotoAI работает в демонстрационном режиме. Совсем скоро здесь будет подключён настоящий искусственный интеллект, который сможет подробно отвечать на любые вопросы по мототехнике.";
 
     }
 
-    const random = endings[Math.floor(Math.random()*endings.length)];
+    const random=endings[Math.floor(Math.random()*endings.length)];
 
-    return "Это интересный вопрос. После подключения настоящего ИИ я смогу отвечать на такие вопросы намного подробнее.\n\n" + random;
+    return "Конечно, я могу отвечать и на обычные вопросы. Но всё же я создан прежде всего для помощи с мототехникой.\n\n"+random;
 
 }
 
 function sendMessage(){
 
-    const text = input.value.trim();
+    const text=input.value.trim();
 
     if(text==="") return;
 
     createMessage(text,"user");
 
     input.value="";
+    input.style.height="26px";
 
     setTimeout(()=>{
 
         createMessage(aiAnswer(text),"ai");
 
-    },700);
+    },600);
 
 }
 
-sendButton.onclick = sendMessage;
+sendButton.onclick=sendMessage;
 
 input.addEventListener("keydown",e=>{
 
@@ -138,8 +138,32 @@ input.addEventListener("keydown",e=>{
 
 input.addEventListener("input",()=>{
 
-    input.style.height="28px";
+    input.style.height="26px";
 
     input.style.height=input.scrollHeight+"px";
 
 });
+
+shareButton.onclick=async()=>{
+
+    if(navigator.share){
+
+        await navigator.share({
+
+            title:"MotoAI",
+
+            text:"Попробуй MotoAI",
+
+            url:window.location.href
+
+        });
+
+    }else{
+
+        await navigator.clipboard.writeText(window.location.href);
+
+        alert("Ссылка скопирована!");
+
+    }
+
+};
