@@ -5,43 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoAI</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<div class="backgroundGlow"></div>
 
 <div class="app">
 
-    <div class="hero">
+    <header class="hero">
 
         <h1>MotoAI</h1>
 
         <h2>ИИ-помощник по мототехнике</h2>
 
         <p>
-            Поможет с диагностикой, ремонтом и обслуживанием вашей техники.
+            Поможет с диагностикой, ремонтом,
+            обслуживанием и выбором мототехники.
         </p>
 
-    </div>
+    </header>
 
-    <div class="chat">
+    <main id="messages" class="messages">
 
-        <div id="messages" class="messages"></div>
+        <!-- сообщения будут появляться здесь -->
 
-        <div class="input-area">
+    </main>
 
-            <input
+    <footer class="chatBox">
+
+        <div class="inputWrapper">
+
+            <textarea
                 id="messageInput"
-                type="text"
-                placeholder="Чем я могу помочь?"
-                autocomplete="off">
+                rows="1"
+                placeholder="Чем я могу помочь?"></textarea>
 
-            <button id="sendButton">
-                ↑
-            </button>
+            <div class="buttons">
+
+                <button id="photoButton" title="Фото">
+
+                    📎
+
+                </button>
+
+                <button id="sendButton" title="Отправить">
+
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none">
+
+                        <path
+                            d="M12 5L12 19"
+                            stroke="currentColor"
+                            stroke-width="2.3"
+                            stroke-linecap="round"/>
+
+                        <path
+                            d="M6.5 10.5L12 5L17.5 10.5"
+                            stroke="currentColor"
+                            stroke-width="2.3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+
+                    </svg>
+
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
+    </footer>
 
 </div>
 
