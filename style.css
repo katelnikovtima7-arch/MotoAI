@@ -9,39 +9,36 @@ body{
     background:#0f0f0f;
     color:white;
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
 .app{
     width:100%;
     max-width:900px;
     height:100vh;
+    margin:auto;
     display:flex;
     flex-direction:column;
-    padding:25px;
+    padding:24px;
 }
 
 .hero{
     text-align:center;
-    margin-top:70px;
+    margin-top:50px;
+    transition:.3s;
 }
 
 .hero h1{
-    font-size:48px;
-    margin-bottom:12px;
+    font-size:46px;
+    margin-bottom:10px;
 }
 
 .hero h2{
-    font-size:24px;
-    color:#ffffff;
-    margin-bottom:14px;
+    font-size:22px;
+    margin-bottom:12px;
 }
 
 .hero p{
-    color:#9b9b9b;
-    font-size:17px;
+    color:#9c9c9c;
     line-height:1.5;
 }
 
@@ -49,23 +46,46 @@ body{
     flex:1;
     display:flex;
     flex-direction:column;
-    justify-content:flex-end;
+    margin-top:25px;
 }
 
 .messages{
     flex:1;
     overflow-y:auto;
-    padding-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding-bottom:20px;
+}
+
+.userMessage{
+    align-self:flex-end;
+    background:#2b2b2b;
+    padding:14px 18px;
+    border-radius:18px 18px 6px 18px;
+    max-width:80%;
+    word-break:break-word;
+}
+
+.aiMessage{
+    align-self:flex-start;
+    background:#181818;
+    border:1px solid #2b2b2b;
+    padding:14px 18px;
+    border-radius:18px 18px 18px 6px;
+    max-width:80%;
+    word-break:break-word;
 }
 
 .input-area{
     display:flex;
     align-items:center;
+    gap:10px;
     background:#1b1b1b;
-    border:1px solid #2b2b2b;
-    border-radius:18px;
+    border:1px solid #2c2c2c;
+    border-radius:20px;
     padding:10px;
-    margin-bottom:25px;
+    margin-top:18px;
 }
 
 .input-area input{
@@ -79,41 +99,42 @@ body{
 }
 
 .input-area input::placeholder{
-    color:#7d7d7d;
+    color:#7b7b7b;
 }
 
 .input-area button{
-    width:46px;
-    height:46px;
+    width:48px;
+    height:48px;
     border:none;
     border-radius:14px;
-    background:#ff8c00;
-    color:white;
+    background:#ffffff;
+    color:black;
     font-size:20px;
     cursor:pointer;
     transition:.2s;
 }
 
-.input-area button:hover{
-    transform:scale(1.06);
+.input-area button:active{
+    transform:scale(.95);
 }
 
 @media(max-width:700px){
-
-.hero{
-    margin-top:40px;
-}
 
 .hero h1{
     font-size:38px;
 }
 
 .hero h2{
-    font-size:20px;
+    font-size:19px;
 }
 
 .hero p{
     font-size:15px;
+}
+
+.userMessage,
+.aiMessage{
+    max-width:90%;
 }
 
 }
