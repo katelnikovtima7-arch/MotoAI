@@ -104,10 +104,9 @@ overflow-y:auto;
 display:flex;
 flex-direction:column;
 gap:15px;
-padding:20px 0;
+padding:20px 0 0;
 scroll-behavior:smooth;
 }
-
 .chat::-webkit-scrollbar{
 width:5px;
 }
