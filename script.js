@@ -3,40 +3,7 @@ const sendButton = document.getElementById("sendButton");
 const shareButton = document.getElementById("shareButton");
 const chat = document.getElementById("chat");
 
-const placeholders = [
-    "Чем я могу помочь?",
-    "Спросите MotoAI...",
-    "Как выбрать мотоцикл?",
-    "Какое масло лучше?",
-    "Какие запчасти подойдут?",
-    "Опишите, что вас интересует...",
-    "О чём вы хотите узнать?",
-    "Чем помочь с вашей мототехникой?"
-];
 
-let placeholderIndex = 0;
-
-function changePlaceholder() {
-
-    input.style.opacity = "0";
-
-    setTimeout(() => {
-
-        placeholderIndex++;
-
-        if (placeholderIndex >= placeholders.length) {
-            placeholderIndex = 0;
-        }
-
-        input.placeholder = placeholders[placeholderIndex];
-
-        input.style.opacity = "1";
-
-    }, 350);
-
-}
-
-setInterval(changePlaceholder, 12000);
 
 function createMessage(text, type) {
 
