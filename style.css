@@ -104,7 +104,7 @@ overflow-y:auto;
 display:flex;
 flex-direction:column;
 gap:15px;
-padding:5px 0 20px;
+padding:20px 0;
 scroll-behavior:smooth;
 }
 
