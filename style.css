@@ -230,7 +230,15 @@ font-size:13px;
 color:#666;
 padding:6px 0 0;
 }
-
+.chatHeader{
+    font-family:'Sora',sans-serif;
+    font-size:30px;
+    font-weight:800;
+    color:#fff;
+    padding-left:18px;
+    padding-top:16px;
+    padding-bottom:12px;
+}
 @keyframes fade{
 from{
 opacity:0;
