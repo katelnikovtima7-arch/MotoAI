@@ -19,24 +19,12 @@ overflow:hidden;
 position:fixed;
 inset:0;
 z-index:-2;
-background:
-radial-gradient(circle at top,#ff8c0025 0%,transparent 40%),
-radial-gradient(circle at bottom,#ff5c0015 0%,transparent 35%),
-#0f1115;
+background:#0d0d0d;
 }
 
 .background::before{
-content:"";
-position:absolute;
-width:550px;
-height:550px;
-background:#ff8c0015;
-filter:blur(140px);
-top:-220px;
-left:50%;
-transform:translateX(-50%);
+display:none;
 }
-
 .container{
 width:100%;
 max-width:900px;
