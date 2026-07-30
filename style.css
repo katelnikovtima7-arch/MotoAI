@@ -142,8 +142,9 @@ border:none;
 padding-left:4px;
 }
 .chatBox{
-margin-top:35px;
-padding-bottom:20px;
+margin-top:auto;
+padding-top:20px;
+padding-bottom:25px;
 }
 
 .inputBox{
