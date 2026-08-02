@@ -61,6 +61,9 @@ async function aiAnswer(question) {
                 role: "assistant",
                 content: answer
             });
+            if (conversation.length > 30) {
+    conversation.splice(0, 2);
+}
 
             return answer;
         }
