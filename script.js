@@ -37,6 +37,50 @@ const hints = [
 "Также могу помочь с диагностикой и обслуживанием."
 
 ];
+async function aiAnswer(question) {
+
+    conversation.push({
+        role: "user",
+        content: question
+    });
+
+    try {
+
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                messages: conversation
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.choices && data.choices.length > 0) {
+
+            const answer = data.choices[0].message.content;
+
+            conversation.push({
+                role: "assistant",
+                content: answer
+            });
+
+            return answer;
+        }
+
+        return "Не удалось получить ответ.";
+
+    } catch {
+
+        return "Ошибка подключения к серверу.";
+
+    }
+
+}
+
+function sendMessage() {
 
 
 
