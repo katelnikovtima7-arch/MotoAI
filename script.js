@@ -6,7 +6,7 @@ const welcomeScreen = document.getElementById("welcomeScreen");
 const conversation = [
     {
         role: "system",
-        content: `СЮДА ПОКА НИЧЕГО НЕ ПИШИ`
+        content: "Ты MotoAI."
     }
 ];
 
