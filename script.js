@@ -159,3 +159,5 @@ shareButton.onclick = async function(){
     }
 
 };
+sendButton.style.background = "#3a3a3a";
+sendButton.style.color = "#ffffff";
