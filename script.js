@@ -3,6 +3,12 @@ const sendButton = document.getElementById("sendButton");
 const shareButton = document.getElementById("shareButton");
 const chat = document.getElementById("chat");
 const welcomeScreen = document.getElementById("welcomeScreen");
+const conversation = [
+    {
+        role: "system",
+        content: `СЮДА ПОКА НИЧЕГО НЕ ПИШИ`
+    }
+];
 
 
 
