@@ -88,6 +88,9 @@ function sendMessage() {
     if (text === "") return;
 
     createMessage(text, "user");
+    if (welcomeScreen) {
+    welcomeScreen.style.display = "none";
+}
 
     input.value = "";
 
