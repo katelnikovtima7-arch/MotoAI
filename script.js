@@ -94,6 +94,7 @@ function sendMessage() {
 
     input.value = "";
     sendButton.style.background = "#3a3a3a";
+    sendButton.style.color = "#ffffff";
 
     input.style.height = "28px";
 
