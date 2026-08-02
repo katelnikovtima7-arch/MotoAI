@@ -197,8 +197,12 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
+background:#3a3a3a;
+color:#ffffff;
+font-size:20px;
+font-weight:700;
 cursor:pointer;
-transition:.25s;
+transition:.2s;
 }
 
 .photoButton{
