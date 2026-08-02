@@ -158,8 +158,8 @@ transition:.25s;
 }
 
 .inputBox:focus-within{
-border-color:#ff8c00;
-box-shadow:0 0 22px rgba(255,140,0,.18);
+border-color:#2f2f2f;
+box-shadow:none;
 }
 
 textarea{
