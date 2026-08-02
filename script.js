@@ -126,12 +126,13 @@ input.addEventListener("input", function(){
     input.style.height = "28px";
     input.style.height = input.scrollHeight + "px";
 
-    if(input.value.trim() === ""){
-        sendButton.style.background = "#3a3a3a";
-    }else{
-        sendButton.style.background = "#ffffff";
-    }
-
+if(input.value.trim() === ""){
+    sendButton.style.background = "#3a3a3a";
+    sendButton.style.color = "#ffffff";
+}else{
+    sendButton.style.background = "#ffffff";
+    sendButton.style.color = "#000000";
+}
 });
 
 shareButton.onclick = async function(){
