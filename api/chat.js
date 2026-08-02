@@ -115,7 +115,7 @@ export default async function handler(req, res) {
 `
     },
 
-    ...req.body.messages
+    ...req.body.messages.filter(message => message.role !== "system")
   ]
 })
     });
