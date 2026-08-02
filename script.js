@@ -123,8 +123,13 @@ input.addEventListener("keydown", function(e){
 input.addEventListener("input", function(){
 
     input.style.height = "28px";
-
     input.style.height = input.scrollHeight + "px";
+
+    if(input.value.trim() === ""){
+        sendButton.style.background = "#3a3a3a";
+    }else{
+        sendButton.style.background = "#ffffff";
+    }
 
 });
 
