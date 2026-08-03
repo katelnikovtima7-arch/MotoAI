@@ -215,6 +215,12 @@ background:#262626;
 color:#fff;
 font-size:17px;
 }
+.photoButton img{
+width:20px;
+height:20px;
+object-fit:contain;
+display:block;
+}
 
 .photoButton:hover{
 background:#333;
