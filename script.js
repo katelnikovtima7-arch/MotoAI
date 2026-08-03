@@ -97,14 +97,25 @@ function sendMessage() {
 
     input.style.height = "28px";
 
-    setTimeout(async () => {
+setTimeout(async () => {
+
+    const thinking = document.createElement("div");
+
+    thinking.className = "message ai thinking";
+
+    thinking.textContent = "MotoAI думает...";
+
+    chat.appendChild(thinking);
+
+    chat.scrollTop = chat.scrollHeight;
 
     const answer = await aiAnswer(text);
 
+    thinking.remove();
+
     createMessage(answer, "ai");
 
-}, 700);
-
+}, 300);
 }
 
 sendButton.onclick = sendMessage;
