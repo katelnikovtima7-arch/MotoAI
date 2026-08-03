@@ -13,7 +13,11 @@ function createMessage(text, type) {
 
     div.className = "message " + type;
 
+    if(type === "ai"){
+    div.innerHTML = marked.parse(text);
+}else{
     div.textContent = text;
+}
 
     chat.appendChild(div);
 
