@@ -8,7 +8,9 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+"HTTP-Referer": "https://moto-ai-alpha.vercel.app",
+"X-Title": "MotoAI"
       },
       body: JSON.stringify({
   model: "llama-3.3-70b-versatile",
