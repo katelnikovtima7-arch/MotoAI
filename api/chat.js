@@ -123,7 +123,12 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    res.status(response.status).json(data);
+
+console.log("STATUS:", response.status);
+console.log("DATA:", JSON.stringify(data, null, 2));
+
+res.status(response.status).json(data);
+    
   } catch (error) {
     res.status(500).json({
       error: "Server error",
