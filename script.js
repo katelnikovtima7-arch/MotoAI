@@ -4,6 +4,32 @@ const shareButton = document.getElementById("shareButton");
 const chat = document.getElementById("chat");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const conversation = [];
+const savedHistory = JSON.parse(localStorage.getItem("motoai_history"));
+
+if(savedHistory){
+
+    savedHistory.forEach(message => {
+
+        const div = document.createElement("div");
+
+        div.className = "message " + message.type;
+
+        if(message.type === "ai"){
+            div.innerHTML = message.text;
+        }else{
+            div.textContent = message.text;
+        }
+
+        chat.appendChild(div);
+
+    });
+
+    if(savedHistory.length > 0){
+        welcomeScreen.style.display = "none";
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+}
 
 
 
