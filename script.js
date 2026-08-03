@@ -97,6 +97,9 @@ async function aiAnswer(question) {
         });
 
         const data = await response.json();
+        if (data.error) {
+    return JSON.stringify(data.error, null, 2);
+}
 
         if (data.choices && data.choices.length > 0) {
 
