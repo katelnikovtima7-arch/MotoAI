@@ -22,6 +22,21 @@ function createMessage(text, type) {
     chat.appendChild(div);
 
     chat.scrollTop = chat.scrollHeight;
+    const history = [];
+
+document.querySelectorAll(".message").forEach(message => {
+
+    history.push({
+
+        text: message.innerHTML,
+
+        type: message.classList.contains("user") ? "user" : "ai"
+
+    });
+
+});
+
+localStorage.setItem("motoai_history", JSON.stringify(history));
 
 }
 
