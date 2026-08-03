@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 "X-Title": "MotoAI"
       },
       body: JSON.stringify({
-  model: "llama-3.3-70b-versatile",
+  model: "google/gemini-2.5-flash",
   temperature: 0.9,
 
   messages: [
